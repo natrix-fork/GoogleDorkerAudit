@@ -1,4 +1,4 @@
-from selenium.webdriver import Chrome, ChromeOptions
+from selenium.webdriver import Firefox, FirefoxOptions
 from termcolor import colored
 import random
 import time
@@ -6,9 +6,7 @@ import time
 
 class CookiesGrabber:
     def __init__(self):
-        options = ChromeOptions()
-        options.add_argument('--no-sandbox mode')
-        options.add_argument("--remote-debugging-port=9222")
+        options = FirefoxOptions()
         options.add_argument('--headless')
         options.add_argument('--incognito')
         self.options = options
@@ -23,8 +21,8 @@ class CookiesGrabber:
 
     def grab_cookies(self):
         for i in range(0, 10, 1):
-            driver = Chrome('/usr/bin/chromedriver', options=self.options)
-            driver.get(random.choice(self.pages))
+            driver = Firefox('/usr/local/bin/', options=self.options)
+            driver.get(self.pages[0])
             cookies = driver.get_cookies()
             new_cookies = []
             for cookie in cookies:
