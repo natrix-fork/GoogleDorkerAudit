@@ -21,7 +21,7 @@ class CookiesGrabber:
 
     def grab_cookies(self):
         for i in range(0, 10, 1):
-            driver = Chrome('/usr/local/bin/chromedriver', options=self.options)
+            driver = Chrome('/usr/bin/chromedriver', options=self.options)
             driver.get(random.choice(self.pages))
             cookies = driver.get_cookies()
             new_cookies = []
