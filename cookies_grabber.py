@@ -7,6 +7,7 @@ import time
 class CookiesGrabber:
     def __init__(self):
         options = ChromeOptions()
+        options.add_argument("--remote-debugging-port=9222")
         options.add_argument('--headless')
         options.add_argument('--incognito')
         self.options = options
